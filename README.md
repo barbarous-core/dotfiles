@@ -16,8 +16,8 @@ The dotfiles are structured as **Stow packages**: each top-level directory is a 
 
 ### Prerequisites
 
-- [GNU Stow](https://www.gnu.org/software/stow/) — `sudo dnf install stow` (Fedora) / `sudo apt install stow` (Debian)
-- Git
+- [GNU Stow](https://www.gnu.org/software/stow/) — `sudo dnf install stow` (Fedora) / `sudo apt install stow` (Debian) / `sudo pacman -S stow` (Arch)
+- [Git](https://git-scm.com/) — `sudo dnf install git` (Fedora) / `sudo apt install git` (Debian) / `sudo pacman -S git` (Arch)
 
 ### Installation
 
