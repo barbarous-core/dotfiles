@@ -89,9 +89,8 @@ Centralized shell aliases for everyday productivity.
 
 Custom scripts for automation, maintenance, and workflow optimization.
 
-| Script | Description |
-|--------|-------------|
-| — | *No scripts yet — table will be updated as scripts are added.* |
+| [fix_path.sh](scripts/fix_path.sh) | Fixes "command not found" by standardizing PATH in .bashrc |
+| [setup_sudo.sh](scripts/setup_sudo.sh) | Automates sudo installation and user configuration |
 
 <!-- UPDATE: Add a row each time a new script is created -->
 
@@ -101,9 +100,8 @@ Custom scripts for automation, maintenance, and workflow optimization.
 
 Documented solutions for recurring console and system issues — a personal troubleshooting knowledge base.
 
-| # | Problem | Fix Summary | Date |
-|---|---------|-------------|------|
-| — | — | — | *No fixes yet — table will be updated as fixes are documented.* |
+| 1 | command not found | Standardized PATH export in .bashrc | 2026-04-10 |
+| 2 | sudo installation | Scripted sudo install and sudoers config | 2026-04-10 |
 
 <!-- UPDATE: Add a row each time a new console fix is documented -->
 
@@ -139,6 +137,7 @@ Key integration points:
 | Date | Change |
 |------|--------|
 | 2026-04-10 | 🎉 Initial README created — repository bootstrapped |
+| 2026-04-10 | 🛠️ Added PATH fix and Sudo setup scripts |
 
 <!-- UPDATE: Add a row for each significant change -->
 
