@@ -104,6 +104,7 @@ Project documentation, roadmaps, and configuration checklists.
 | File | Description |
 |------|-------------|
 | [shell_customization.md](docs/shell_customization.md) | A roadmap for shell optimization and Barbarous Core personalization |
+| [set_variables.md](docs/set_variables.md) | Documentation of common environmental variables and their rationale |
 
 <!-- UPDATE: Add a row each time a new doc file is created -->
 

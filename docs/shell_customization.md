@@ -2,7 +2,7 @@
 
 This checklist outlines the steps to personalize and optimize the shell environment for **Barbarous Core**.
 
-- [ ] **Set variables**: Define environmental variables (e.g., `EDITOR`, `LANG`, `PROMPT_COMMAND`).
+- [/] **Set variables**: Define environmental variables (e.g., `EDITOR`, `LANG`, `PROMPT_COMMAND`). [Reference](set_variables.md)
 - [ ] **Create aliases**: Shorten frequently used commands for faster navigation and execution.
 - [ ] **Customize the prompt**: Use tools like Starship or Zsh themes to create a functional, aesthetically pleasing prompt.
 - [ ] **Write handy functions**: Automate complex or repetitive tasks with custom shell functions.
