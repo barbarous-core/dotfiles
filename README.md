@@ -90,6 +90,8 @@ Centralized shell aliases for everyday productivity.
 
 Custom scripts for automation, maintenance, and workflow optimization.
 
+| Script | Description |
+|--------|-------------|
 | [fix_path.sh](scripts/fix_path.sh) | Fixes "command not found" by standardizing PATH in .bashrc |
 | [setup_sudo.sh](scripts/setup_sudo.sh) | Automates sudo installation and user configuration |
 
@@ -114,6 +116,8 @@ Project documentation, roadmaps, and configuration checklists.
 
 Documented solutions for recurring console and system issues — a personal troubleshooting knowledge base.
 
+| # | Issue | Solution | Date |
+|---|---|---|---|
 | 1 | command not found | Standardized PATH export in .bashrc | 2026-04-10 |
 | 2 | sudo installation | Scripted sudo install and sudoers config | 2026-04-10 |
 
