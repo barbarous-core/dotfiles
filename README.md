@@ -68,7 +68,7 @@ dotfiles/
 
 | Package | Description | Target |
 |---------|-------------|--------|
-| — | *No packages yet — table will be updated as dotfiles are added.* | — |
+| `bash` | Core bash configuration, prompt settings, and env variables | `~/.bashrc` |
 
 <!-- UPDATE: Add a row each time a new stow package is created -->
 
