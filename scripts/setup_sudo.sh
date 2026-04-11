@@ -11,6 +11,14 @@ if [ -z "$TARGET_USER" ]; then
     exit 1
 fi
 
+# Check if user already has sudo privileges
+if command -v sudo >/dev/null 2>&1; then
+    if groups "$TARGET_USER" 2>/dev/null | grep -E "\b(sudo|wheel)\b" >/dev/null || [ -f "/etc/sudoers.d/$TARGET_USER" ]; then
+        echo "User $TARGET_USER is already in sudoer."
+        exit 0
+    fi
+fi
+
 echo "Switching to root to perform installation (password required)..."
 
 su -c "
