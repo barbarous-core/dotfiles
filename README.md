@@ -49,6 +49,7 @@ stow -D <package-name>
 ```
 dotfiles/
 ├── README.md              # ← You are here
+├── docs/                  # Project documentation & roadmaps
 ├── <package>/             # Each directory is a Stow package
 │   └── .config/           # Mirrors ~/.<config> structure
 │       └── <app>/
@@ -96,6 +97,18 @@ Custom scripts for automation, maintenance, and workflow optimization.
 
 ---
 
+## 📚 Documentation
+
+Project documentation, roadmaps, and configuration checklists.
+
+| File | Description |
+|------|-------------|
+| [shell_customization.md](docs/shell_customization.md) | A roadmap for shell optimization and Barbarous Core personalization |
+
+<!-- UPDATE: Add a row each time a new doc file is created -->
+
+---
+
 ## 🔧 Console Fixes
 
 Documented solutions for recurring console and system issues — a personal troubleshooting knowledge base.
@@ -129,6 +142,7 @@ Key integration points:
 | New alias added | [Aliases](#️-aliases) |
 | New script added | [Scripts](#-scripts) |
 | Console problem fixed | [Console Fixes](#-console-fixes) |
+| Change in `docs/` | [Documentation](#-documentation) |
 
 ---
 
@@ -138,6 +152,7 @@ Key integration points:
 |------|--------|
 | 2026-04-10 | 🎉 Initial README created — repository bootstrapped |
 | 2026-04-10 | 🛠️ Added PATH fix and Sudo setup scripts |
+| 2026-04-11 | 📖 Added docs directory and shell customization roadmap |
 
 <!-- UPDATE: Add a row for each significant change -->
 
