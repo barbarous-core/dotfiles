@@ -9,3 +9,4 @@ source ~/.config/bash/rc
 #
 # Make an alias for invoking commands you use constantly
 # alias p='python'
+eval "$(~/.local/bin/mise activate bash)"
