@@ -1,0 +1,7 @@
+# Editor used by CLI
+export SUDO_EDITOR="$EDITOR"
+export BAT_THEME=ansi
+
+# Duplicated from .config/uwsm/env so SSH works too
+export BASH_PATH=$HOME/.config/bash
+# export PATH=$OMARCHY_PATH/bin:$PATH:$HOME/.local/bin
