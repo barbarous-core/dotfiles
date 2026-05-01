@@ -1,0 +1,30 @@
+# Determine current shell
+if [ -n "$ZSH_VERSION" ]; then
+  CURRENT_SHELL="zsh"
+elif [ -n "$BASH_VERSION" ]; then
+  CURRENT_SHELL="bash"
+else
+  CURRENT_SHELL="bash" # fallback
+fi
+
+source ~/.config/shells/envs
+
+# Source shell-specific configuration if it exists
+if [ -f ~/.config/${CURRENT_SHELL}/shell ]; then
+  source ~/.config/${CURRENT_SHELL}/shell
+fi
+
+source ~/.config/shells/aliases
+source ~/.config/shells/functions
+
+# Support init script whether it was moved to shells/ or kept in shell-specific directory
+if [ -f ~/.config/shells/init ]; then
+  source ~/.config/shells/init
+elif [ -f ~/.config/${CURRENT_SHELL}/init ]; then
+  source ~/.config/${CURRENT_SHELL}/init
+fi
+
+# Bash-specific configurations (like inputrc bindings)
+if [[ $- == *i* ]] && [ "$CURRENT_SHELL" = "bash" ]; then
+  bind -f ~/.config/${CURRENT_SHELL}/inputrc
+fi

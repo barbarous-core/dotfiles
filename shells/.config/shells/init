@@ -1,0 +1,33 @@
+# Determine current shell
+if [ -n "$ZSH_VERSION" ]; then
+  CURRENT_SHELL="zsh"
+elif [ -n "$BASH_VERSION" ]; then
+  CURRENT_SHELL="bash"
+else
+  CURRENT_SHELL="bash" # fallback
+fi
+
+if command -v mise &> /dev/null; then
+  eval "$(mise activate $CURRENT_SHELL)"
+fi
+
+if [[ $- == *i* ]] && [[ ${TERM:-} != "dumb" ]] && command -v starship &> /dev/null; then
+  eval "$(starship init $CURRENT_SHELL)"
+fi
+
+if command -v zoxide &> /dev/null; then
+  eval "$(zoxide init $CURRENT_SHELL --cmd cd)"
+fi
+
+if command -v try &> /dev/null; then
+  eval "$(SHELL=/bin/$CURRENT_SHELL command try init ~/Work/tries)"
+fi
+
+if command -v fzf &> /dev/null; then
+  if [[ -f .config/fzf/completion.$CURRENT_SHELL ]]; then
+    source .config/fzf/completion.$CURRENT_SHELL
+  fi
+  if [[ -f .config/fzf/key-bindings.$CURRENT_SHELL ]]; then
+    source .config/fzf/key-bindings.$CURRENT_SHELL
+  fi
+fi
