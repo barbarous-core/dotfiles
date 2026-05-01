@@ -112,3 +112,5 @@ if [[ "$TERM" == "linux" ]] && [[ -z "$BICON_RUNNING" ]]; then
     export BICON_RUNNING=1
     exec bicon
 fi
+
+source ~/.config/shells/rc

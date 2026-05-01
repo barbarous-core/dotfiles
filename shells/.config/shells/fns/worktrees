@@ -1,4 +1,5 @@
 # Create a new worktree and branch from within current git directory.
+unalias ga 2>/dev/null || true
 ga() {
   if [[ -z "$1" ]]; then
     echo "Usage: ga [branch name]"
@@ -15,6 +16,7 @@ ga() {
 }
 
 # Remove worktree and branch from within active worktree directory.
+unalias gd 2>/dev/null || true
 gd() {
   if gum confirm "Remove worktree and branch?"; then
     local cwd base branch root worktree
