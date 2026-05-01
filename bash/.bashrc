@@ -5,8 +5,4 @@
 # (don't mess with these directly, just overwrite them here!)
 source ~/.config/bash/rc
 
-# Add your own exports, aliases, and functions here.
-#
-# Make an alias for invoking commands you use constantly
-# alias p='python'
-eval "$(~/.local/bin/mise activate bash)"
+
