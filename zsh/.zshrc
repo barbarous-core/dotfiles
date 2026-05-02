@@ -79,8 +79,37 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 
 # Customize the main highlighter styles.
 # See https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/docs/highlighters/main.md#how-to-tweak-it
-#typeset -A ZSH_HIGHLIGHT_STYLES
 #ZSH_HIGHLIGHT_STYLES[comment]='fg=242'
+
+# -----------------
+# Completion & fzf-tab
+# -----------------
+
+# Disable caching for completion
+zstyle ':completion:*' use-cache true
+zstyle ':completion:*' cache-path "${ZDOTDIR:-$HOME}/.zcompcache"
+
+# Matching control: case-insensitive, hyphen-insensitive, and partial matching
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+
+# fzf-tab configuration
+# ---------------------
+
+# Preview directory contents with eza when completing 'cd'
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+
+# Preview process details when completing 'kill'
+zstyle ':fzf-tab:complete:kill:argument-rest' fzf-preview 'ps --pid=$word -o cmd --no-headers -w -w'
+zstyle ':fzf-tab:complete:kill:argument-rest' fzf-flags '--preview-window=down:3:wrap'
+
+# Use tmux popup if in a tmux session
+zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
+
+# Custom colors for fzf-tab
+zstyle ':fzf-tab:*' fzf-flags '--color=bg+:23'
+
+# Switch groups using < and >
+zstyle ':fzf-tab:*' switch-group '<' '>'
 
 # ------------------
 # Initialize modules
@@ -114,3 +143,32 @@ if [[ "$TERM" == "linux" ]] && [[ -z "$BICON_RUNNING" ]]; then
 fi
 
 source ~/.config/shells/rc
+
+# -----------------
+# Custom Logic
+# -----------------
+
+# Deno
+. "/home/mohamed/.deno/env"
+if [[ ":$FPATH:" != *":/home/mohamed/.zsh/completions:"* ]]; then 
+    export FPATH="/home/mohamed/.zsh/completions:$FPATH"
+fi
+
+# ── yt-pick: paste a YouTube URL in the terminal → interactive download TUI ──
+_yt_pick_handler() {
+    # ONLY trigger if the entire command is JUST the URL (ignoring surrounding spaces/escapes)
+    if [[ "$BUFFER" =~ '^[[:space:]]*https?://[^ ]*(youtube\.com|youtu\.be)[^ ]*[[:space:]]*$' ]]; then
+        # Clean URL of shell escapes (\) and rewrite command
+        local url="${BUFFER//\\/}"
+        BUFFER="python3 /run/media/mohamed/PRODUCTION/MyScriptsWorkflow/yt-pick ${(q)url}"
+    fi
+    zle .accept-line
+}
+zle -N _yt_pick_handler
+bindkey '^M' _yt_pick_handler
+bindkey '^J' _yt_pick_handler
+
+# Mise
+if command -v mise &> /dev/null; then
+  eval "$(mise activate zsh)"
+fi
