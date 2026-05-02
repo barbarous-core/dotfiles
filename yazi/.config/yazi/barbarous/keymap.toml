@@ -1,0 +1,39 @@
+# Barbarous Premium Keymaps
+# Pure Vim-Style Keybindings
+
+[mgr]
+prepend_keymap = [
+	# --- Vim-like Navigation ---
+	{ on = "k", run = "arrow prev", desc = "Move cursor up" },
+	{ on = "j", run = "arrow next", desc = "Move cursor down" },
+	{ on = "h", run = "leave",      desc = "Go to parent directory" },
+	{ on = "l", run = "enter",      desc = "Enter directory or open file" },
+
+	{ on = "<C-u>", run = "arrow -50%",  desc = "Move up half page" },
+	{ on = "<C-d>", run = "arrow 50%",   desc = "Move down half page" },
+	{ on = [ "g", "g" ], run = "arrow top", desc = "Go to top" },
+	{ on = "G",          run = "arrow bot", desc = "Go to bottom" },
+
+	# --- Vim-like Operations ---
+	{ on = "v",         run = "visual_mode",         desc = "Enter visual mode" },
+	{ on = "V",         run = "visual_mode --unset", desc = "Enter visual mode (unset)" },
+	{ on = [ "y", "y" ], run = "yank",              desc = "Yank (copy) selected files" },
+	{ on = [ "d", "d" ], run = "remove",            desc = "Delete (trash) selected files" },
+	{ on = "p",         run = "paste",               desc = "Paste files" },
+	{ on = "r",         run = "rename --cursor=before_ext", desc = "Rename files" },
+	{ on = "a",         run = "create",              desc = "Create new file" },
+	{ on = "/",         run = "find --smart",        desc = "Search within directory" },
+	{ on = "n",         run = "find_arrow",          desc = "Next search result" },
+	{ on = "N",         run = "find_arrow --previous", desc = "Previous search result" },
+
+	# --- System / General ---
+	{ on = "<Esc>",     run = "quit",               desc = "Exit Yazi" },
+	{ on = "q",         run = "quit",               desc = "Exit Yazi" },
+	{ on = ":",         run = "shell --block --interactive", desc = "Run shell command" },
+	{ on = ".",         run = "hidden toggle",      desc = "Toggle hidden files" },
+
+	# --- Premium Plugin Shortcuts ---
+	{ on = "M",         run = "plugin mount",       desc = "Mount device" },
+	{ on = ["'", "s"],  run = "plugin what-size",   desc = "Show total directory size" },
+	{ on = "z",         run = "plugin fzf",         desc = "Fuzzy find files" },
+]

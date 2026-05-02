@@ -1,0 +1,75 @@
+# Barbarous Premium Yazi Configuration
+# Optimized for a Vim-like workflow with pro plugins
+
+[mgr]
+ratio          = [ 1, 4, 3 ]
+sort_by        = "alphabetical"
+sort_sensitive = false
+sort_reverse 	 = false
+sort_dir_first = true
+show_hidden    = true
+show_symlink   = true
+scrolloff      = 5
+mouse_events   = [ "click", "scroll" ]
+title_format   = "Barbarous: {cwd}"
+
+[preview]
+wrap            = "no"
+tab_size        = 2
+max_width       = 800
+max_height      = 1200
+cache_dir       = ""
+image_delay     = 30
+image_filter    = "triangle"
+image_quality   = 75
+
+[opener]
+edit = [
+	{ run = '${EDITOR:-vi} "$@"', desc = "$EDITOR", block = true, for = "unix" },
+]
+open = [
+	{ run = 'xdg-open "$1"', desc = "Open", for = "linux" },
+]
+play = [
+	{ run = 'mpv --force-window "$@"', orphan = true, for = "unix" },
+]
+
+[open]
+rules = [
+	{ name = "*/", use = [ "edit", "open" ] },
+	{ mime = "text/*", use = [ "edit" ] },
+	{ mime = "image/*", use = [ "open" ] },
+	{ mime = "{audio,video}/*", use = [ "play" ] },
+	{ name = "*", use = [ "open" ] },
+]
+
+# CodeOpsHQ Plugins: Git Status integration
+[[plugin.prepend_fetchers]]
+id   = "git"
+name = "*"
+run  = "git"
+
+[[plugin.prepend_fetchers]]
+id   = "git"
+name = "*/"
+run  = "git"
+
+[plugin]
+append_previewers = [
+  { name = "*", run = "file-extra-metadata" },
+]
+append_spotters = [
+  { name = "*", run = "file-extra-metadata" },
+]
+spotters = [
+  { name = "*", run = "file-extra-metadata" },
+]
+
+[input]
+cursor_blink = false
+
+[confirm]
+trash_title 	= "Trash {n} selected file{s}?"
+trash_origin	= "center"
+delete_title 	= "Permanently delete {n} selected file{s}?"
+delete_origin	= "center"
