@@ -146,6 +146,7 @@ Custom scripts for automation, maintenance, and workflow optimization.
 | Script | Description |
 |--------|-------------|
 | [install.sh](scripts/install.sh) | Automatically detects distro, installs all modern CLI tools, and stows dotfiles |
+| [install_fonts.sh](scripts/install_fonts.sh) | Downloads Nerd Fonts (JetBrainsMono) and Arabic fonts (Vazirmatn, Kawkab Mono), managed via Stow |
 | [fix_path.sh](scripts/fix_path.sh) | Fixes "command not found" by standardizing PATH in .bashrc |
 | [setup_sudo.sh](scripts/setup_sudo.sh) | Automates sudo installation and user configuration |
 

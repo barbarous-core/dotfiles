@@ -194,7 +194,7 @@ head "GNU Stow — Deploy Configs"
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 info "Stowing all packages from $DOTFILES_DIR ..."
 
-for pkg in atuin bash btop fzf git lazygit mise nvim procs ripgrep shells starship tealdeer tmux topgrade yazi zsh; do
+for pkg in atuin bash btop fonts fzf git lazygit mise nvim procs ripgrep shells starship tealdeer tmux topgrade yazi zsh; do
   if [[ -d "$DOTFILES_DIR/$pkg" ]]; then
     run "stow --dir=\"$DOTFILES_DIR\" --target=\"$HOME\" --restow \"$pkg\""
     ok "stowed: $pkg"
