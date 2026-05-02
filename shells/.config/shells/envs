@@ -36,6 +36,9 @@ if command -v fzf &> /dev/null; then
   "
 fi
 
+# Ripgrep Configuration
+export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/ripgreprc"
+
 # Duplicated from .config/uwsm/env so SSH works too
 export BASH_PATH=$HOME/.config/bash
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/.local/bin:$PATH"

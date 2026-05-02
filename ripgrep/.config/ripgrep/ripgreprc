@@ -1,0 +1,28 @@
+# Ripgrep Configuration File (ripgreprc)
+
+# Search hidden files and directories by default
+--hidden
+
+# Use smart case searching (case-insensitive unless uppercase is used)
+--smart-case
+
+# Exclude .git directory
+--glob=!.git/*
+
+# Limit line length to avoid flooding the terminal
+--max-columns=150
+--max-columns-preview
+
+# TTY-Optimized Colors (High Contrast)
+# -----------------------------------
+# Line numbers in yellow
+--colors=line:fg:yellow
+--colors=line:style:bold
+
+# File paths in magenta
+--colors=path:fg:magenta
+--colors=path:style:bold
+
+# Matches in bright green
+--colors=match:fg:green
+--colors=match:style:bold
