@@ -12,6 +12,16 @@ The dotfiles are structured as **Stow packages**: each top-level directory is a 
 
 ---
 
+## 🏗️ How This Repo Was Created
+
+The architectural philosophy and content of this repository follow these strict principles:
+
+- **CLI Only**: This repository is designed exclusively for command-line (CLI) and Terminal User Interface (TUI) applications. **No GUI applications** are configured or managed here, ensuring a pure, lightweight, and TTY-compatible environment.
+- **Curated Foundations**: The configurations are heavily inspired by the [Omarchy](https://github.com/omarchy) dotfiles, and carefully audited repositories from famous developer YouTubers and power users. The full registry of tracked external repositories is available in the [inbox_repos.md](docs/inbox_repos.md) tracker.
+- **Rigorous Auditing**: Rather than blindly copying configurations, each tool's setup was determined by cross-referencing and comparing the dotfiles of different creators to identify best practices. These decisions are explained in detail within the `docs/[APP]_comparison.md` files (for example, see [tmux_comparison.md](docs/tmux_comparison.md) or [fzf_comparison.md](docs/fzf_comparison.md)).
+
+---
+
 ## 🚀 Quick Start
 
 ### Prerequisites
