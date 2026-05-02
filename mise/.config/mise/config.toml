@@ -1,0 +1,17 @@
+# Mise Global Configuration
+# Inspired by Aetf's dotfiles
+
+[tools]
+# Install cargo-binstall globally to speed up other Rust tool installations
+cargo-binstall = "latest"
+
+[settings]
+# General settings can go here
+# experimental = true
+
+[settings.cargo]
+# Automatically use cargo-binstall for installing rust tools via mise
+binstall = true
+
+[settings.npm]
+# NPM specific settings

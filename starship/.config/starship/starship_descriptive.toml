@@ -1,3 +1,4 @@
+# Owner: Christian Lempa - https://github.com/ChristianLempa/dotfiles.git
 # ~/.config/starship.toml
 
 add_newline = false

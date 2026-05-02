@@ -1,3 +1,4 @@
+# Owner: omerxx - https://github.com/omerxx/dotfiles.git
 add_newline = false
 # A minimal left prompt
 format = """$directory$character"""
