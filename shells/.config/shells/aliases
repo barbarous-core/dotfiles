@@ -60,3 +60,10 @@ alias gcam='git commit -a -m'
 alias gcad='git commit -a --amend'
 # Owner: Elijah Manor | Github: https://github.com/elijahmanor/dotfiles
 alias cb='git branch --sort=-committerdate | fzf --header "Checkout Recent Branch" --preview "git diff {1} --color=always" --pointer="" | xargs git checkout'
+alias gl='git log --graph --oneline --all --decorate'
+alias lg='lazygit'
+
+# Search & productivity
+alias grep='rg --smart-case --hidden'
+alias cat='bat --style=plain --paging=never'
+alias preview='bat --style=numbers --color=always'

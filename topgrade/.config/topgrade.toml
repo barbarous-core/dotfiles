@@ -1,0 +1,11 @@
+[misc]
+assume_yes = true
+no_retry = true
+skip_notify = true
+
+[git]
+repos = ["~/dotfiles"]
+
+[commands]
+"Dotfiles Stow" = "cd ~/dotfiles && stow shells zsh nvim starship tmux mise"
+"Clean Cache" = "sudo dnf clean all"
