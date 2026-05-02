@@ -78,3 +78,8 @@ alias du='dust'
 # Owner: g0t4 | Github: https://github.com/g0t4/dotfiles
 alias rgg='rg --json . | delta --features rg'
 alias ddiff='delta'
+
+# Procs (Modern ps)
+alias procsm='procs --sortd mem'
+alias procsc='procs --sortd cpu'
+alias procst='procs --tree'
