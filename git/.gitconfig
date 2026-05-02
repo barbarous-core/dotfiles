@@ -1,0 +1,61 @@
+[user]
+	name = AM LAHMAR
+	email = abdelmalek.lahmar@gmail.com
+
+[core]
+    pager = delta
+    autocrlf = input
+
+[pull]
+    # Owner: g0t4 | Github: https://github.com/g0t4/dotfiles
+    rebase = true
+
+[diff]
+    # Owner: g0t4 | Github: https://github.com/g0t4/dotfiles
+    algorithm = histogram
+    colorMoved = default
+
+[init]
+    defaultBranch = main
+
+[pretty]
+    # Owner: g0t4 | Github: https://github.com/g0t4/dotfiles
+    # custom format: git log --pretty=compact
+    compact = %C(white)%h%Creset %Cblue%cr%Creset%C(auto)%d%Creset %s
+    reflog = format:%C(auto)%h%d %gd | %cr | %gs%C(reset)
+
+[interactive]
+    # Owner: g0t4 | Github: https://github.com/g0t4/dotfiles
+    # Better handling of line lengths in interactive patches
+    diffFilter = delta --color-only --wrap-max-lines=unlimited --max-line-length=0
+
+[delta]
+    # Use n and N to move between diff sections
+    navigate = true
+    
+    # TTY-optimized settings
+    line-numbers = true
+    side-by-side = false # Set to true if you have a wide terminal
+    
+    # Tokyo Night inspired theme for delta
+    minus-style                   = syntax "#3f2d3d"
+    minus-non-emphasized-style    = syntax "#3f2d3d"
+    minus-emphasized-style        = syntax "#763842"
+    minus-empty-line-marker-style = syntax "#3f2d3d"
+    plus-style                    = syntax "#283b4d"
+    plus-non-emphasized-style     = syntax "#283b4d"
+    plus-emphasized-style         = syntax "#316172"
+    plus-empty-line-marker-style  = syntax "#283b4d"
+    whitespace-error-style        = "#2d2d2d" reverse
+
+[delta "rg"]
+    # Owner: g0t4 | Github: https://github.com/g0t4/dotfiles
+    # colors for rg --json output: rg --json "query" | delta --features rg
+    plus-emph-style = "normal 162"
+
+[merge]
+    conflictstyle = zdiff3
+    tool = nvimdiff
+
+[diff]
+    colorMoved = default

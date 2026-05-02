@@ -43,3 +43,12 @@ cheat() {
 sys() {
     btop --preset 0
 }
+
+# Diff the output of the last two commands
+# Owner: g0t4 | Github: https://github.com/g0t4/dotfiles
+# Usage: Run two commands, then type 'dlc'
+dlc() {
+  # This re-runs the commands and pipes their output to delta
+  # !-2 is the second-to-last command, !! is the last command
+  delta <(eval $(fc -ln -2 -2)) <(eval $(fc -ln -1 -1))
+}

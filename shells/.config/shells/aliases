@@ -67,3 +67,6 @@ alias lg='lazygit'
 alias grep='rg --smart-case --hidden'
 alias cat='bat --style=plain --paging=never'
 alias preview='bat --style=numbers --color=always'
+# Owner: g0t4 | Github: https://github.com/g0t4/dotfiles
+alias rgg='rg --json . | delta --features rg'
+alias ddiff='delta'
