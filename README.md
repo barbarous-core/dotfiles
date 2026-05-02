@@ -44,6 +44,49 @@ stow -D <package-name>
 
 ---
 
+## 🧰 Installed Applications
+
+This environment automatically provisions a modern, high-performance CLI toolchain using the `install.sh` script:
+
+### 🦀 Core Tools & Dependencies
+- 🦀 **Rust Toolchain** (`rustup` / `cargo`)
+- 🐚 **zsh** - Primary shell
+-  پو **bash** - Fallback shell (installed by default on any distro)
+- 🪟 **tmux** - Terminal multiplexer
+- 🌿 **git** - Version control
+- 📦 **GNU Stow** - Dotfile symlink manager
+- 🚀 **Starship** - Cross-shell prompt
+
+### ⚡ Modern CLI Replacements
+- 🔍 **ripgrep** (`rg`) - `grep` replacement
+- 🎨 **delta** - `diff` replacement with syntax highlighting
+- 📊 **dust** - `du` replacement
+- ⚙️ **procs** - `ps` replacement
+- 🦇 **bat** - `cat` replacement
+- 📁 **eza** - `ls` replacement
+- 🔎 **fd** - `find` replacement
+- 🗺️ **zoxide** - Smarter `cd`
+- 📚 **tealdeer** (`tldr`) - Offline `man` pages
+
+### 🛠️ Fuzzy Finding & Workflows
+- 🪄 **fzf** - Command-line fuzzy finder
+- 🗄️ **yazi** - Blazing fast terminal file manager
+- 📦 **lazygit** - Terminal UI for git
+- 📝 **nvim** - Neovim text editor
+- 🐢 **atuin** - Magical shell history synchronization
+- 📈 **btop** - Modern system resource monitor
+
+### 📦 Package & Environment Management
+- 🛠️ **mise** - Polyglot tool version manager
+- ⬆️ **topgrade** - Master system update utility
+- 📦 **cargo-binstall** - Fast pre-compiled Rust binary installer
+
+### 🔌 Frameworks & Plugins
+- ⚡ **Zim Framework** - High-performance Zsh plugin manager
+- 🔌 **tpm** - Tmux Plugin Manager
+
+---
+
 ## 📂 Repository Structure
 
 ```
@@ -92,6 +135,7 @@ Custom scripts for automation, maintenance, and workflow optimization.
 
 | Script | Description |
 |--------|-------------|
+| [install.sh](scripts/install.sh) | Automatically detects distro, installs all modern CLI tools, and stows dotfiles |
 | [fix_path.sh](scripts/fix_path.sh) | Fixes "command not found" by standardizing PATH in .bashrc |
 | [setup_sudo.sh](scripts/setup_sudo.sh) | Automates sudo installation and user configuration |
 
@@ -105,8 +149,20 @@ Project documentation, roadmaps, and configuration checklists.
 
 | File | Description |
 |------|-------------|
+| [cli_productivity_audit.md](docs/cli_productivity_audit.md) | The master roadmap tracking the completion of the 100% optimized CLI environment |
+| [inbox_repos.md](docs/inbox_repos.md) | Registry of external dotfile repositories curated for configuration research |
 | [shell_customization.md](docs/shell_customization.md) | A roadmap for shell optimization and Barbarous Core personalization |
 | [set_variables.md](docs/set_variables.md) | Documentation of common environmental variables and their rationale |
+| [bash_config_comparison.md](docs/bash_config_comparison.md) | Research and comparison of external Bash configurations |
+| [zsh_config_comparison.md](docs/zsh_config_comparison.md) | Research and comparison of external Zsh configurations |
+| [starship_comparison.md](docs/starship_comparison.md) | Research and comparison of external Starship prompt configurations |
+| [tmux_comparison.md](docs/tmux_comparison.md) | Research and comparison of external Tmux configurations |
+| [fzf_comparison.md](docs/fzf_comparison.md) | Research and comparison of external Fzf configurations |
+| [yazi_comparison.md](docs/yazi_comparison.md) | Research and comparison of Yazi file manager configurations |
+| [mise_comparison.md](docs/mise_comparison.md) | Research and comparison of Mise tool manager configurations |
+| [tealdeer_comparison.md](docs/tealdeer_comparison.md) | Research and comparison of Tealdeer/tldr configurations |
+| [dust_comparison.md](docs/dust_comparison.md) | Research and comparison of Dust (du alternative) configurations |
+| [tty_productivity_audit.md](docs/tty_productivity_audit.md) | Assessment of TTY-specific workflows and console constraints |
 
 <!-- UPDATE: Add a row each time a new doc file is created -->
 
@@ -155,9 +211,13 @@ Key integration points:
 
 | Date | Change |
 |------|--------|
-| 2026-04-10 | 🎉 Initial README created — repository bootstrapped |
-| 2026-04-10 | 🛠️ Added PATH fix and Sudo setup scripts |
+| 2026-05-02 | 🛠️ Created `install.sh` for automated, distro-agnostic toolchain provisioning |
+| 2026-05-02 | 🚀 Achieved 100% completion of the Barbarous CLI Productivity Audit |
+| 2026-05-02 | 📖 Generated extensive configuration comparison documentation for all modern CLI tools |
+| 2026-05-02 | 🧰 Added complete list of managed installed applications to README |
 | 2026-04-11 | 📖 Added docs directory and shell customization roadmap |
+| 2026-04-10 | 🛠️ Added PATH fix and Sudo setup scripts |
+| 2026-04-10 | 🎉 Initial README created — repository bootstrapped |
 
 <!-- UPDATE: Add a row for each significant change -->
 
