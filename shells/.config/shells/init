@@ -31,3 +31,7 @@ if command -v fzf &> /dev/null; then
     source .config/fzf/key-bindings.$CURRENT_SHELL
   fi
 fi
+
+if command -v atuin &> /dev/null; then
+  eval "$(atuin init $CURRENT_SHELL)"
+fi
