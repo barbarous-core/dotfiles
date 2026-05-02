@@ -83,3 +83,10 @@ alias ddiff='delta'
 alias procsm='procs --sortd mem'
 alias procsc='procs --sortd cpu'
 alias procst='procs --tree'
+
+# Tealdeer (tldr) — quick command reference
+# Owner: Aloxaf | Github: https://github.com/Aloxaf/dotfiles
+if command -v tldr &> /dev/null; then
+  alias h='tldr'            # one-keystroke help
+  alias tldr-update='tldr --update'  # manual cache refresh
+fi

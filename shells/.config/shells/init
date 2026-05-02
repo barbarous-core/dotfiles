@@ -35,3 +35,18 @@ fi
 if command -v atuin &> /dev/null; then
   eval "$(atuin init $CURRENT_SHELL)"
 fi
+
+# Tealdeer — register built-in Zsh completions (generated once, cached)
+# Supersedes the old compctl plugin approach (g0t4/dotfiles)
+if [[ "$CURRENT_SHELL" == "zsh" ]] && command -v tldr &> /dev/null; then
+  _tldr_comp_dir="${ZDOTDIR:-$HOME}/.zsh/completions"
+  _tldr_comp_file="$_tldr_comp_dir/_tldr"
+  if [[ ! -f "$_tldr_comp_file" ]]; then
+    mkdir -p "$_tldr_comp_dir"
+    tldr --print-completions zsh > "$_tldr_comp_file" 2>/dev/null
+  fi
+  if [[ ":$FPATH:" != *":$_tldr_comp_dir:"* ]]; then
+    export FPATH="$_tldr_comp_dir:$FPATH"
+  fi
+  unset _tldr_comp_dir _tldr_comp_file
+fi

@@ -1,0 +1,17 @@
+# tealdeer configuration
+# https://github.com/nickel-lang/nickel/blob/master/doc/manual/tealdeer-config.md
+# Man: tldr --config-path
+
+[display]
+# Disable compact mode to show the description header (better for discovery)
+compact = false
+
+# Do not auto-pipe through a pager (faster for quick lookups)
+use_pager = false
+
+[updates]
+# Automatically refresh the local page cache in the background
+auto_update = true
+
+# Refresh every 30 days (720 hours)
+auto_update_interval_hours = 720
