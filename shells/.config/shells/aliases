@@ -42,7 +42,7 @@ open() (
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
-alias fd='cd "$(find . -maxdepth 3 -type d | fzf --preview "eza --tree --level=2 --color=always {}")"'
+alias fd='cd "$(fd --type d --max-depth 3 | fzf --preview "eza --tree --level=2 --color=always {}")"'
 
 # Tools
 alias c='opencode'
@@ -58,3 +58,5 @@ alias gs='git status'
 alias gcm='git commit -m'
 alias gcam='git commit -a -m'
 alias gcad='git commit -a --amend'
+# Owner: Elijah Manor | Github: https://github.com/elijahmanor/dotfiles
+alias cb='git branch --sort=-committerdate | fzf --header "Checkout Recent Branch" --preview "git diff {1} --color=always" --pointer="" | xargs git checkout'

@@ -2,6 +2,40 @@
 export SUDO_EDITOR="$EDITOR"
 export BAT_THEME=ansi
 
+# FZF Configuration
+# -----------------
+if command -v fzf &> /dev/null; then
+  # Use fd (if available) for much faster search and git-awareness
+  # Owner: omerxx | Github: https://github.com/omerxx/dotfiles
+  if command -v fd &> /dev/null; then
+    export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+    export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+  fi
+
+  # Tokyo Night style (Premium look)
+  # Owner: CodeOpsHQ | Github: https://github.com/CodeOpsHQ/dotfiles
+  export FZF_DEFAULT_OPTS=" \
+    --info=inline-right \
+    --ansi \
+    --layout=reverse \
+    --border=rounded \
+    --color=border:#27a1b9 \
+    --color=fg:#c0caf5 \
+    --color=gutter:#16161e \
+    --color=header:#ff9e64 \
+    --color=hl+:#2ac3de \
+    --color=hl:#2ac3de \
+    --color=info:#545c7e \
+    --color=marker:#ff007c \
+    --color=pointer:#ff007c \
+    --color=prompt:#2ac3de \
+    --color=query:#c0caf5:regular \
+    --color=scrollbar:#27a1b9 \
+    --color=separator:#ff9e64 \
+    --color=spinner:#ff007c \
+  "
+fi
+
 # Duplicated from .config/uwsm/env so SSH works too
 export BASH_PATH=$HOME/.config/bash
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/.local/bin:$PATH"
