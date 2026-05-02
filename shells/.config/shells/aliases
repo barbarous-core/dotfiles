@@ -67,6 +67,14 @@ alias lg='lazygit'
 alias grep='rg --smart-case --hidden'
 alias cat='bat --style=plain --paging=never'
 alias preview='bat --style=numbers --color=always'
+
+# Disk usage
+# Owner: g0t4 | Github: https://github.com/g0t4/dotfiles
+alias du='dust'
+#alias du='du -h | sort -hr'
+
+# Owner: CodeOpsHQ | Github: https://github.com/CodeOpsHQ/dotfiles
+#alias du='colourify du'
 # Owner: g0t4 | Github: https://github.com/g0t4/dotfiles
 alias rgg='rg --json . | delta --features rg'
 alias ddiff='delta'

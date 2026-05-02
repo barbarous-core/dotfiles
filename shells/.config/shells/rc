@@ -9,6 +9,13 @@ fi
 
 source ~/.config/shells/envs
 
+# Source GRC configuration if it exists
+if [ -f /etc/grc.zsh ]; then
+  source /etc/grc.zsh
+elif [ -f /etc/profile.d/grc.sh ]; then
+  source /etc/profile.d/grc.sh
+fi
+
 # Source shell-specific configuration if it exists
 if [ -f ~/.config/${CURRENT_SHELL}/shell ]; then
   source ~/.config/${CURRENT_SHELL}/shell
