@@ -42,6 +42,7 @@ open() (
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+alias fd='cd "$(find . -maxdepth 3 -type d | fzf --preview "eza --tree --level=2 --color=always {}")"'
 
 # Tools
 alias c='opencode'
