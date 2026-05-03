@@ -149,9 +149,11 @@ source ~/.config/shells/rc
 # -----------------
 
 # Deno
-. "/home/mohamed/.deno/env"
-if [[ ":$FPATH:" != *":/home/mohamed/.zsh/completions:"* ]]; then 
-    export FPATH="/home/mohamed/.zsh/completions:$FPATH"
+if [[ -f "$HOME/.deno/env" ]]; then
+  . "$HOME/.deno/env"
+fi
+if [[ ":$FPATH:" != *":$HOME/.zsh/completions:"* ]]; then 
+    export FPATH="$HOME/.zsh/completions:$FPATH"
 fi
 
 # ── yt-pick: paste a YouTube URL in the terminal → interactive download TUI ──

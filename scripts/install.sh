@@ -93,6 +93,20 @@ smart_install() {
   fi
 }
 
+# ── Dependency: Build Tools ───────────────────────────────────────────────────
+head "Build Tools"
+if ! command -v cc &>/dev/null && ! command -v gcc &>/dev/null; then
+  info "Installing build tools (C compiler required for some packages)..."
+  case "$PKG_FAMILY" in
+    debian) pkg_install build-essential ;;
+    fedora) pkg_install gcc gcc-c++ make ;;
+    arch)   pkg_install base-devel ;;
+    *)      warn "Please install a C compiler manually" ;;
+  esac
+else
+  ok "Build tools already installed"
+fi
+
 # ── Dependency: Rust ──────────────────────────────────────────────────────────
 head "Rust Toolchain"
 if ! command -v cargo &>/dev/null; then
@@ -101,6 +115,13 @@ if ! command -v cargo &>/dev/null; then
   run "source \"$HOME/.cargo/env\""
 else
   ok "Rust/cargo already installed"
+fi
+
+if ! command -v cargo-binstall &>/dev/null; then
+  info "Installing cargo-binstall..."
+  run "curl -L --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.sh | bash"
+else
+  ok "cargo-binstall already installed"
 fi
 
 # ── Core Shell Tools ──────────────────────────────────────────────────────────
@@ -172,12 +193,6 @@ fi
 
 smart_install topgrade topgrade topgrade
 
-if ! command -v cargo-binstall &>/dev/null; then
-  info "Installing cargo-binstall..."
-  run "curl -L --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-releases.sh | bash"
-else
-  ok "cargo-binstall already installed"
-fi
 
 # ── Zsh Framework & Plugins ───────────────────────────────────────────────────
 head "Zim Framework"
