@@ -1,4 +1,4 @@
-# FILE AUTOMATICALLY GENERATED FROM /home/mdebian/.zimrc
+# FILE AUTOMATICALLY GENERATED FROM /home/mohamed/.zimrc
 # EDIT THE SOURCE FILE AND THEN RUN zimfw build. DO NOT DIRECTLY EDIT THIS FILE!
 
 if [[ -e ${ZIM_CONFIG_FILE:-${ZDOTDIR:-${HOME}}/.zimrc} ]] zimfw() { source "${HOME}/.zim/zimfw.zsh" "${@}" }
@@ -12,6 +12,7 @@ source "${HOME}/.zim/modules/utility/init.zsh"
 source "${HOME}/.zim/modules/duration-info/init.zsh"
 source "${HOME}/.zim/modules/asciiship/asciiship.zsh-theme"
 source "${HOME}/.zim/modules/completion/init.zsh"
+source "${HOME}/.zim/modules/fzf-tab/fzf-tab.zsh"
 source "${HOME}/.zim/modules/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 source "${HOME}/.zim/modules/zsh-history-substring-search/zsh-history-substring-search.zsh"
 source "${HOME}/.zim/modules/zsh-autosuggestions/zsh-autosuggestions.zsh"
