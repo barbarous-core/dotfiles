@@ -16,7 +16,7 @@ The dotfiles are structured as **Stow packages**: each top-level directory is a 
 
 The architectural philosophy and content of this repository follow these strict principles:
 
-- **CLI Only**: This repository is designed exclusively for command-line (CLI) and Terminal User Interface (TUI) applications. **No GUI applications** are configured or managed here, ensuring a pure, lightweight, and TTY-compatible environment.
+- **CLI & GUI Ecosystem**: While originally CLI-focused, this repository now manages consistent configurations for both terminal and GUI applications, ensuring a unified **Tokyo Night** aesthetic and Vim-centric workflow across the entire desktop.
 - **Curated Foundations**: The configurations are heavily inspired by the [Omarchy](https://github.com/omarchy) dotfiles, and carefully audited repositories from famous developer YouTubers and power users. The full registry of tracked external repositories is available in the [inbox_repos.md](docs/inbox_repos.md) tracker.
 - **Rigorous Auditing**: Rather than blindly copying configurations, each tool's setup was determined by cross-referencing and comparing the dotfiles of different creators to identify best practices. These decisions are explained in detail within the `docs/[APP]_comparison.md` files (for example, see [tmux_comparison.md](docs/tmux_comparison.md) or [fzf_comparison.md](docs/fzf_comparison.md)).
 
@@ -38,11 +38,11 @@ git clone <repo-url> ~/dotfiles
 # Enter the directory
 cd ~/dotfiles
 
-# Stow a specific package (e.g. bash)
-stow bash
+# Install CLI environment
+./scripts/install.sh
 
-# Stow everything at once
-stow */
+# Install GUI environment (optional)
+./scripts/install_gui.sh
 ```
 
 ### Uninstalling a Package
@@ -85,6 +85,12 @@ This environment automatically provisions a modern, high-performance CLI toolcha
 - 📝 **nvim** - Neovim text editor
 - 🐢 **atuin** - Magical shell history synchronization
 - 📈 **btop** - Modern system resource monitor
+
+### 🖥️ GUI Applications (New!)
+- 🐱 **Kitty** - High-performance, GPU-accelerated terminal emulator
+- 🚀 **Rofi** - Window switcher, application launcher, and dmenu replacement
+- 🎨 **Tokyo Night GTK** - Consistent system-wide theming
+- 📓 **Obsidian** - Knowledge management with Tokyo Night styling
 
 ### 📦 Package & Environment Management
 - 🛠️ **mise** - Polyglot tool version manager
@@ -145,7 +151,9 @@ Custom scripts for automation, maintenance, and workflow optimization.
 
 | Script | Description |
 |--------|-------------|
-| [install.sh](scripts/install.sh) | Automatically detects distro, installs all modern CLI tools, and stows dotfiles |
+| [install.sh](scripts/install.sh) | Automatically detects distro, installs all modern CLI tools, and stows CLI dotfiles |
+| [install_gui.sh](scripts/install_gui.sh) | Installs GUI applications (DEs, browsers, editors) and stows GUI dotfiles |
+| [install_gui_themes.sh](scripts/install_gui_themes.sh) | Downloads and installs Tokyo Night GTK and Icon themes |
 | [install_fonts.sh](scripts/install_fonts.sh) | Downloads Nerd Fonts (JetBrainsMono) and Arabic fonts (Vazirmatn, Kawkab Mono), managed via Stow |
 | [fix_path.sh](scripts/fix_path.sh) | Fixes "command not found" by standardizing PATH in .bashrc |
 | [setup_sudo.sh](scripts/setup_sudo.sh) | Automates sudo installation and user configuration |
@@ -161,6 +169,7 @@ Project documentation, roadmaps, and configuration checklists.
 | File | Description |
 |------|-------------|
 | [cli_productivity_audit.md](docs/cli_productivity_audit.md) | The master roadmap tracking the completion of the 100% optimized CLI environment |
+| [gui_productivity_audit.md](docs/gui_productivity_audit.md) | Roadmap for achieving 100% consistency in the GUI environment |
 | [inbox_repos.md](docs/inbox_repos.md) | Registry of external dotfile repositories curated for configuration research |
 | [shell_customization.md](docs/shell_customization.md) | A roadmap for shell optimization and Barbarous Core personalization |
 | [set_variables.md](docs/set_variables.md) | Documentation of common environmental variables and their rationale |
@@ -222,6 +231,7 @@ Key integration points:
 
 | Date | Change |
 |------|--------|
+| 2026-05-05 | 🎨 Expanded scope to include GUI apps (Kitty, Rofi, GTK) with Tokyo Night consistency |
 | 2026-05-02 | 🛠️ Created `install.sh` for automated, distro-agnostic toolchain provisioning |
 | 2026-05-02 | 🚀 Achieved 100% completion of the Barbarous CLI Productivity Audit |
 | 2026-05-02 | 📖 Generated extensive configuration comparison documentation for all modern CLI tools |
