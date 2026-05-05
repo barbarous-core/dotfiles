@@ -10,6 +10,9 @@ if [[ -f "$HOME/.cargo/env" ]]; then
   source "$HOME/.cargo/env"
 fi
 
+# Ensure common local bin directories are in PATH
+export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.atuin/bin:$PATH"
+
 # ── Colors & Logging ──────────────────────────────────────────────────────────
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -91,6 +94,14 @@ pkg_install() {
     arch)   run "sudo pacman -S --noconfirm ${missing[*]}" ;;
     *)      warn "Unknown distro — skipping: ${missing[*]}" ;;
   esac
+}
+
+fedora_copr() {
+  local repo="$1"
+  if [[ "$PKG_FAMILY" == "fedora" ]]; then
+    info "Enabling Fedora COPR: $repo ..."
+    run "sudo dnf copr enable -y $repo"
+  fi
 }
 
 cargo_install() {
@@ -298,7 +309,18 @@ fi
 # ── Workflow Tools ────────────────────────────────────────────────────────────
 head "Workflow Tools"
 smart_install yazi yazi yazi-fm
-smart_install lazygit lazygit lazygit
+
+# Lazygit specialized install for Fedora
+if ! command -v lazygit &>/dev/null; then
+  if [[ "$PKG_FAMILY" == "fedora" ]]; then
+    fedora_copr "atim/lazygit"
+    pkg_install lazygit
+  else
+    smart_install lazygit lazygit lazygit
+  fi
+else
+  ok "lazygit already installed"
+fi
 smart_install nvim neovim neovim
 
 if ! command -v atuin &>/dev/null; then
@@ -362,7 +384,10 @@ if command -v yazi &>/dev/null && command -v ya &>/dev/null; then run "ya pack -
 ZIM_FW="${ZDOTDIR:-$HOME}/.zim/zimfw.zsh"
 if [[ -f "$ZIM_FW" ]]; then
   info "Syncing Zim framework..."
-  run "ZIM_HOME=\"\${ZDOTDIR:-\$HOME}/.zim\" zsh \"$ZIM_FW\" install"
+  # Try install/build. If it fails due to module issues, we suggest a reinstall
+  if ! run "ZIM_HOME=\"\${ZDOTDIR:-\$HOME}/.zim\" zsh \"$ZIM_FW\" install"; then
+    warn "Zim sync had issues. If you see 'Module was not installed using git', run: zsh \"$ZIM_FW\" reinstall"
+  fi
 elif [[ ! -d "${ZDOTDIR:-$HOME}/.zim" ]]; then
   info "Installing Zim framework..."
   run "mkdir -p \"\${ZDOTDIR:-\$HOME}/.zim\""

@@ -133,7 +133,6 @@ fi
 # Initialize modules.
 source ${ZIM_HOME}/init.zsh
 # }}} End configuration added by Zim Framework install
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 
 
 # Automatic bicon for Arabic support in TTY
@@ -170,7 +169,4 @@ zle -N _yt_pick_handler
 bindkey '^M' _yt_pick_handler
 bindkey '^J' _yt_pick_handler
 
-# Mise
-if command -v mise &> /dev/null; then
-  eval "$(mise activate zsh)"
-fi
+# End of .zshrc
