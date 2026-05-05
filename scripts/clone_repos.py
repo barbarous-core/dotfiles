@@ -2,8 +2,10 @@ import os
 import re
 import subprocess
 
-md_path = '/home/mohamed/dotfiles/docs/inbox_repos.md'
-inbox_path = '/home/mohamed/dotfiles/inbox'
+# Get the root directory of the dotfiles repo
+repo_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+md_path = os.path.join(repo_root, 'docs/inbox_repos.md')
+inbox_path = os.path.join(repo_root, 'inbox')
 
 os.chdir(inbox_path)
 

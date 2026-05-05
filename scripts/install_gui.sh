@@ -61,6 +61,17 @@ group_install() {
   esac
 }
 
+# ── Pre-flight Check ──────────────────────────────────────────────────────────
+head "Pre-flight Check"
+if ! command -v git &>/dev/null; then
+  info "Installing git..."
+  pkg_install git
+fi
+if ! command -v stow &>/dev/null; then
+  info "Installing stow..."
+  pkg_install stow
+fi
+
 # ── GUI Applications ─────────────────────────────────────────────────────────
 
 head "Desktop Environments & Window Managers"
